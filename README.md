@@ -7,7 +7,13 @@ Limit access to specific urls based on environment, session session status, and 
 ## Installation
 
 ```python
-pip install restricted_paths
+pip install restricted-paths
+```
+
+or
+
+```python
+pipenv install restricted-paths
 ```
 
 ## Usage

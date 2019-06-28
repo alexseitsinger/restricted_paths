@@ -1,19 +1,13 @@
-# Restricted Paths Middleware
+# Restricted Paths
 
 ## Description
 
-Limit access to specific urls based on environment, session session status, and account level.
+Restricts access to specific urls based on DEBUG status by responded with a specific view or raising a 404.
 
 ## Installation
 
 ```python
-pip install restricted-paths
-```
-
-or
-
-```python
-pipenv install restricted-paths
+pip install django-restricted-paths
 ```
 
 ## Usage
@@ -21,15 +15,13 @@ pipenv install restricted-paths
 in settings.py:
 
 ```python
-IS_DEVELOPMENT = DEBUG
-
-RESTRICTED_PATHS = (
-    "/admin",
-)
+RESTRICTED_PATHS = {
+  "PATHS": ("/admin",),
+  "VIEW": "path.to.view.class.ViewClass",
+}
 
 MIDDLEWARE = (
     ...
     "restricted_paths.middleware.RestrictedPathsMiddleware"
-    ...
 )
 ```

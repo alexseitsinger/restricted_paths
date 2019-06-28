@@ -2,7 +2,7 @@
 
 ## Description
 
-Restricts access to specific urls based on DEBUG status by responded with a specific view or raising a 404.
+Restricts access to specific urls to staff only by responding with a specific view or raising a 404.
 
 ## Installation
 

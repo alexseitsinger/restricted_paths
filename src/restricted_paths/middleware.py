@@ -17,6 +17,6 @@ class RestrictedPathsMiddleware(object):
                             ViewClass = import_string(VIEW)
                             view = ViewClass.as_view()
                             return view(request)
-                        except ImportError:
+                        except (AttributeError, ImportError):
                             raise Http404
         return self.get_response(request)

@@ -1,21 +1,22 @@
-"""
-    https://stackoverflow.com/questions/24559531/how-do-i-restrict-access-to-admin-pages-in-django
-    https://djangosnippets.org/snippets/2095/
-"""
 from django.http import Http404
-from django.conf import settings
+from django.utils.module_loading import import_string
 
-RESTRICTED_PATHS = getattr(settings, "RESTRICTED_PATHS", [])
-IS_DEVELOPMENT = getattr(settings, "IS_DEVELOPMENT", False)
+from .settings import DEBUG, PATHS, VIEW
+
 
 class RestrictedPathsMiddleware(object):
     def __init__(self, get_response):
         self.get_response = get_response
 
     def __call__(self, request):
-        if not IS_DEVELOPMENT:
+        if DEBUG is False:
             if not request.user.is_staff:
-                for path in RESTRICTED_PATHS:
+                for path in PATHS:
                     if request.path.startswith(path):
-                        raise Http404
+                        try:
+                            ViewClass = import_string(VIEW)
+                            view = ViewClass.as_view()
+                            return view(request)
+                        except ImportError:
+                            raise Http404
         return self.get_response(request)

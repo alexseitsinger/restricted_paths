@@ -1,4 +1,4 @@
-# Restricted Paths
+# Django Restricted Paths
 
 ## Description
 

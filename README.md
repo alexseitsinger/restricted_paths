@@ -16,6 +16,7 @@ in settings.py:
 
 ```python
 RESTRICTED_PATHS = {
+  "ENABLED": not DEBUG,
   "PATHS": ("/admin",),
   "VIEW": "path.to.view.class.ViewClass",
 }

@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.utils.module_loading import import_string
 
-from .settings import DEBUG, PATHS, VIEW
+from .settings import ENABLED, PATHS, VIEW
 
 
 class RestrictedPathsMiddleware(object):
@@ -9,7 +9,7 @@ class RestrictedPathsMiddleware(object):
         self.get_response = get_response
 
     def __call__(self, request):
-        if DEBUG is False:
+        if ENABLED is True:
             if not request.user.is_staff:
                 for path in PATHS:
                     if request.path.startswith(path):

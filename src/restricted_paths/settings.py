@@ -1,8 +1,8 @@
 from django.conf import settings
 
-DEBUG = getattr(settings, "DEBUG", False)
-
 SETTINGS = getattr(settings, "RESTRICTED_PATHS", {})
+
+ENABLED = SETTINGS.get("ENABLED", True)
 
 PATHS = SETTINGS.get("PATHS", ())
 

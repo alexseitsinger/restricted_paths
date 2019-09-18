@@ -1,3 +1,7 @@
+<a name="v1.4.0"></a>
+## [v1.4.0](https://github.com/alexseitsinger/django-restricted-paths/compare/v1.3.0...v1.4.0) (2019-09-18)
+
+
 <a name="v1.3.0"></a>
 ## [v1.3.0](https://github.com/alexseitsinger/django-restricted-paths/compare/v1.2.0...v1.3.0) (2019-09-18)
 

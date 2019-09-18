@@ -6,7 +6,7 @@ from setup_utils import read, read_markdown
 PACKAGE_NAME = "django-restricted-paths"
 SOURCE_DIR_NAME = "restricted_paths"
 GITHUB_URL = "https://github.com/alexseitsinger/{}".format(PACKAGE_NAME)
-HOMEPAGE_URL = "https://www.alexseitsinger.com/packages/python/{}".format(PACKAGE_NAME)
+HOMEPAGE_URL = GITHUB_URL
 README_NAME = "README.md"
 
 setup(
